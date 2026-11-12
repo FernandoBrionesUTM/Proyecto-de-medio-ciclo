@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Planes de suscripción de PowerFit Gym e inscripción en línea.">
+  <meta name="description" content="Planes de suscripción de PowerFit Gym.">
   <title>Suscripciones | PowerFit Gym</title>
   <link rel="stylesheet" href="estilos.css">
   <script src="script.js" defer></script>
@@ -99,47 +99,6 @@
           <p>20% de descuento a personas mayores de 60 años.</p>
         </article>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="contenedor">
-        <h2>Inscríbete ahora</h2>
-        <form id="inscripcion" class="formulario" action="#" method="get">
-          <p>Todos los campos son obligatorios.</p>
-          <div class="campo">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="error-nombre">
-            <p class="error" id="error-nombre"></p>
-          </div>
-          <div class="campo">
-            <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="error-correo">
-            <p class="error" id="error-correo"></p>
-          </div>
-          <div class="campo">
-            <label for="edad">Edad (de 12 a 90 años)</label>
-            <input type="number" id="edad" name="edad" min="12" max="90" required aria-describedby="error-edad">
-            <p class="error" id="error-edad"></p>
-          </div>
-          <div class="campo">
-            <label for="plan">Plan</label>
-            <select id="plan" name="plan" required aria-describedby="error-plan">
-              <option value="">Elige un plan</option>
-              <option value="Básico">Básico</option>
-              <option value="Premium">Premium</option>
-              <option value="VIP">VIP</option>
-            </select>
-            <p class="error" id="error-plan"></p>
-          </div>
-          <div class="campo">
-            <input type="checkbox" id="acepto" name="acepto" required aria-describedby="error-acepto">
-            <label for="acepto">Acepto las normas del gimnasio</label>
-            <p class="error" id="error-acepto"></p>
-          </div>
-          <button type="submit" class="boton">Enviar inscripción</button>
-          <p id="mensaje" role="status"></p>
-        </form>
       </div>
     </section>
   </main>
