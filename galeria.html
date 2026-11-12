@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PowerFit Gym - Galería</title>
+  <meta name="description" content="Fotos de las instalaciones de PowerFit Gym.">
+  <title>Galería | PowerFit Gym</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="saltar" href="#contenido">Ir al contenido principal</a>
 
   <header>
     <div class="contenedor barra">
-      <div class="logo">Power<span>Fit</span> Gym</div>
-      <nav>
+      <p class="logo">Power<span>Fit</span> Gym</p>
+      <nav aria-label="Menú principal">
         <ul>
           <li><a href="gym.html">Inicio</a></li>
           <li><a href="suscripciones.html">Suscripciones</a></li>
           <li><a href="entrenadores.html">Entrenadores</a></li>
-          <li><a href="galeria.html" class="activo">Galería</a></li>
+          <li><a href="galeria.html" aria-current="page">Galería</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="titulo-pagina">
-    <h1>Conoce nuestro gimnasio</h1>
-    <p>Fotos de nuestras instalaciones</p>
-  </div>
-
-  <section>
-    <div class="contenedor">
-      <div class="galeria">
-        <div class="foto"><img src="pesas.jpeg" alt="Zona de pesas"></div>
-        <div class="foto"><img src="areacardio.jpeg" alt="Área de cardio"></div>
-        <div class="foto"><img src="yoga.jpeg" alt="Salón de yoga"></div>
-        <div class="foto"><img src="spinning.jpeg" alt="Sala de spinning"></div>
-        <div class="foto"><img src="vestidor.jpeg" alt="Vestidores"></div>
-        <div class="foto"><img src="descanso.jpeg" alt="Zona de descanso"></div>
-      </div>
+  <main id="contenido">
+    <div class="titulo-pagina">
+      <h1>Conoce nuestro gimnasio</h1>
+      <p>Fotos de nuestras instalaciones</p>
     </div>
-  </section>
+
+    <section>
+      <div class="contenedor">
+        <h2>Nuestras instalaciones</h2>
+        <div class="galeria">
+          <div class="foto"><img src="pesas.jpeg" width="554" height="554" alt="Zona de pesas con mancuernas y bancos"></div>
+          <div class="foto"><img src="areacardio.jpeg" width="1024" height="683" alt="Área de cardio con trotadoras"></div>
+          <div class="foto"><img src="yoga.jpeg" width="390" height="280" alt="Salón de yoga con pelotas y espejos"></div>
+          <div class="foto"><img src="spinning.jpeg" width="547" height="365" alt="Sala de spinning con luces moradas"></div>
+          <div class="foto"><img src="vestidor.jpeg" width="747" height="410" alt="Vestidores con casilleros y banca de madera"></div>
+          <div class="foto"><img src="descanso.jpeg" width="588" height="340" alt="Zona de descanso con sillones de cuero"></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

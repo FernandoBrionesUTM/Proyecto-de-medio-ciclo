@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PowerFit Gym - Inicio</title>
+  <meta name="description" content="PowerFit Gym: gimnasio en Guayaquil con zona de pesas, cardio y clases grupales.">
+  <title>Inicio | PowerFit Gym</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="saltar" href="#contenido">Ir al contenido principal</a>
 
   <header>
     <div class="contenedor barra">
-      <div class="logo">Power<span>Fit</span> Gym</div>
-      <nav>
+      <p class="logo">Power<span>Fit</span> Gym</p>
+      <nav aria-label="Menú principal">
         <ul>
-          <li><a href="gym.html" class="activo">Inicio</a></li>
+          <li><a href="gym.html" aria-current="page">Inicio</a></li>
           <li><a href="suscripciones.html">Suscripciones</a></li>
           <li><a href="entrenadores.html">Entrenadores</a></li>
           <li><a href="galeria.html">Galería</a></li>
@@ -21,87 +24,94 @@
       </nav>
     </div>
   </header>
- 
-  <div class="portada">
-    <a href="suscripciones.html">
-      <img src="portada.png" alt="Entrena con nosotros en PowerFit Gym">
-    </a>
-  </div>
 
-  <section class="fondo-blanco">
-    <div class="contenedor">
-      <h2>Sobre nosotros</h2>
-      <p style="text-align:center;">
-        PowerFit Gym abrió sus puertas hace más de 8 años con una meta: que
-        cualquier persona, sin importar su nivel, pueda mejorar su salud y su
-        condición física. Contamos con instalaciones amplias, zona de pesas,
-        cardio, clases grupales y vestidores completos.
-      </p>
-      <p style="text-align:center;">
-        Av. Principal #123, Guayaquil | 09 9999 9999 | info@powerfitgym.com
-      </p>
+  <main id="contenido">
+    <div class="portada">
+      <a href="suscripciones.html">
+        <img src="portada.webp" width="1410" height="708" alt="Entrena con nosotros en PowerFit Gym. Ver las suscripciones">
+      </a>
     </div>
-  </section>
 
-  <section>
-    <div class="contenedor">
-      <h2>Beneficios del gimnasio</h2>
-      <div class="tarjetas">
-        <div class="tarjeta">
+    <section class="fondo-blanco">
+      <div class="contenedor centrado">
+        <h1>Bienvenido a PowerFit Gym</h1>
+        <p class="texto-centro">
+          PowerFit Gym abrió sus puertas hace más de 8 años con una meta: que
+          cualquier persona, sin importar su nivel, pueda mejorar su salud y su
+          condición física. Contamos con instalaciones amplias, zona de pesas,
+          cardio, clases grupales y vestidores completos.
+        </p>
+        <p class="texto-centro">
+          Av. Principal #123, Guayaquil | 09 9999 9999 | info@powerfitgym.com
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="contenedor">
+        <h2>Beneficios del gimnasio</h2>
+        <div class="tarjetas">
+        <article class="tarjeta">
           <h3>Equipos modernos</h3>
           <p>Máquinas nuevas, pesas libres y zona de cardio.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Entrenadores certificados</h3>
           <p>Te ayudan a crear una rutina según tu objetivo.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Clases grupales</h3>
           <p>Yoga, spinning, zumba y funcional incluidas.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Vestidores y duchas</h3>
           <p>Casilleros, duchas con agua caliente y baños limpios.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Parqueadero gratis</h3>
           <p>Espacio seguro para carros y motos.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Ambiente climatizado</h3>
           <p>Aire acondicionado en todas las áreas.</p>
+        </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="fondo-blanco">
-    <div class="contenedor">
-      <h2>Horario de atención</h2>
-      <table class="horario">
-        <tr><th>Día</th><th>Horario</th></tr>
-        <tr><td>Lunes a viernes</td><td>05:00 - 22:00</td></tr>
-        <tr><td>Sábado</td><td>07:00 - 20:00</td></tr>
-        <tr><td>Domingo</td><td>08:00 - 14:00</td></tr>
-      </table>
-    </div>
-  </section>
+    <section class="fondo-blanco">
+      <div class="contenedor">
+        <h2>Horario de atención</h2>
+        <table class="horario">
+          <caption>Horario de atención del gimnasio</caption>
+          <thead>
+            <tr><th scope="col">Día</th><th scope="col">Horario</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Lunes a viernes</th><td>05:00 - 22:00</td></tr>
+            <tr><th scope="row">Sábado</th><td>07:00 - 20:00</td></tr>
+            <tr><th scope="row">Domingo</th><td>08:00 - 14:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <section>
-    <div class="contenedor">
-      <h2>Información importante</h2>
-      <div class="aviso">Trae una toalla y una botella de agua en cada visita.</div>
-      <div class="aviso">Es obligatorio usar ropa deportiva y zapatos cerrados.</div>
-      <div class="aviso">Menores de 16 años deben venir con un adulto responsable.</div>
-      <div class="aviso">El gimnasio no se hace responsable por objetos olvidados. Usa los casilleros.</div>
-      <div class="aviso">Si tienes alguna condición médica, consulta a tu médico antes de empezar.</div>
-    </div>
-  </section>
+    <section>
+      <div class="contenedor">
+        <h2>Información importante</h2>
+        <ul class="avisos">
+          <li class="aviso">Trae una toalla y una botella de agua en cada visita.</li>
+          <li class="aviso">Es obligatorio usar ropa deportiva y zapatos cerrados.</li>
+          <li class="aviso">Menores de 16 años deben venir con un adulto responsable.</li>
+          <li class="aviso">El gimnasio no se hace responsable por objetos olvidados. Usa los casilleros.</li>
+          <li class="aviso">Si tienes alguna condición médica, consulta a tu médico antes de empezar.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

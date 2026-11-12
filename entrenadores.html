@@ -1,76 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PowerFit Gym - Entrenadores</title>
+  <meta name="description" content="Entrenadores personales de PowerFit Gym y reserva de sesiones.">
+  <title>Entrenadores | PowerFit Gym</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="saltar" href="#contenido">Ir al contenido principal</a>
 
   <header>
     <div class="contenedor barra">
-      <div class="logo">Power<span>Fit</span> Gym</div>
-      <nav>
+      <p class="logo">Power<span>Fit</span> Gym</p>
+      <nav aria-label="Menú principal">
         <ul>
           <li><a href="gym.html">Inicio</a></li>
           <li><a href="suscripciones.html">Suscripciones</a></li>
-          <li><a href="entrenadores.html" class="activo">Entrenadores</a></li>
+          <li><a href="entrenadores.html" aria-current="page">Entrenadores</a></li>
           <li><a href="galeria.html">Galería</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="titulo-pagina">
-    <h1>Entrenadores personales</h1>
-    <p>Contrata una sesión y alcanza tus metas más rápido</p>
-  </div>
+  <main id="contenido">
+    <div class="titulo-pagina">
+      <h1>Entrenadores personales</h1>
+      <p>Contrata una sesión y alcanza tus metas más rápido</p>
+    </div>
 
-  <section>
-    <div class="contenedor">
-      <p style="text-align:center; margin-bottom:20px;">
-        ¿Cuántas sesiones quieres?
-        <input type="text" id="sesiones" value="1" size="3">
-      </p>
-      <div class="tarjetas">
-        <div class="tarjeta">
-          <div class="foto-entrenador">M</div>
+    <section>
+      <div class="contenedor">
+        <h2>Nuestro equipo</h2>
+        <div class="campo sesiones">
+          <label for="sesiones">¿Cuántas sesiones quieres?</label>
+          <input type="number" id="sesiones" name="sesiones" min="1" value="1" aria-describedby="ayuda-sesiones error-sesiones">
+          <p id="ayuda-sesiones">Con 10 sesiones o más recibes 10% de descuento.</p>
+          <p class="error" id="error-sesiones"></p>
+        </div>
+        <div class="tarjetas">
+        <article class="tarjeta">
+          <p class="foto-entrenador" aria-hidden="true">M</p>
           <h3>Michael Pinoargote</h3>
           <p class="especialidad">Musculación y fuerza</p>
           <p>8 años de experiencia ayudando a ganar masa muscular.</p>
           <p class="precio">$15 <small>/ sesión</small></p>
-          <button class="boton" onclick="contratar('Michael Pinoargote', 15)">Contratar</button>
-        </div>
-        <div class="tarjeta">
-          <div class="foto-entrenador">F</div>
+          <button type="button" class="boton" data-precio="15" aria-label="Contratar a Michael Pinoargote">Contratar</button>
+        </article>
+        <article class="tarjeta">
+          <p class="foto-entrenador" aria-hidden="true">F</p>
           <h3>Fernando Briones</h3>
           <p class="especialidad">Pérdida de peso y cardio</p>
           <p>Rutinas dinámicas y planes de alimentación sencillos.</p>
           <p class="precio">$14 <small>/ sesión</small></p>
-          <button class="boton" onclick="contratar('Fernando Briones', 14)">Contratar</button>
-        </div>
-        <div class="tarjeta">
-          <div class="foto-entrenador">L</div>
+          <button type="button" class="boton" data-precio="14" aria-label="Contratar a Fernando Briones">Contratar</button>
+        </article>
+        <article class="tarjeta">
+          <p class="foto-entrenador" aria-hidden="true">S</p>
           <h3>Samir Dueñas</h3>
           <p class="especialidad">Entrenamiento funcional</p>
           <p>Mejora tu movilidad, resistencia y postura.</p>
           <p class="precio">$12 <small>/ sesión</small></p>
-          <button class="boton" onclick="contratar('Luis Paredes', 12)">Contratar</button>
+          <button type="button" class="boton" data-precio="12" aria-label="Contratar a Samir Dueñas">Contratar</button>
+        </article>
         </div>
+        <p id="reserva" class="reserva" role="status"></p>
       </div>
-
-      <div class="aviso" style="margin-top:30px;">
-        Al contratar 10 sesiones o más recibes 10% de descuento.
-      </div>
-      <p id="reserva" style="text-align:center; font-weight:bold; margin-top:20px;"></p>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

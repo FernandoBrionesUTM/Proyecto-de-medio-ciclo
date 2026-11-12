@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PowerFit Gym - Suscripciones</title>
+  <meta name="description" content="Planes de suscripción de PowerFit Gym e inscripción en línea.">
+  <title>Suscripciones | PowerFit Gym</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="saltar" href="#contenido">Ir al contenido principal</a>
 
   <header>
     <div class="contenedor barra">
-      <div class="logo">Power<span>Fit</span> Gym</div>
-      <nav>
+      <p class="logo">Power<span>Fit</span> Gym</p>
+      <nav aria-label="Menú principal">
         <ul>
           <li><a href="gym.html">Inicio</a></li>
-          <li><a href="suscripciones.html" class="activo">Suscripciones</a></li>
+          <li><a href="suscripciones.html" aria-current="page">Suscripciones</a></li>
           <li><a href="entrenadores.html">Entrenadores</a></li>
           <li><a href="galeria.html">Galería</a></li>
         </ul>
@@ -22,110 +25,127 @@
     </div>
   </header>
 
-  <div class="titulo-pagina">
-    <h1>Suscripciones</h1>
-    <p>Elige el plan que mejor se adapta a ti</p>
-  </div>
+  <main id="contenido">
+    <div class="titulo-pagina">
+      <h1>Suscripciones</h1>
+      <p>Elige el plan que mejor se adapta a ti</p>
+    </div>
 
-  <section>
-    <div class="contenedor">
+    <section>
+      <div class="contenedor">
+        <h2>Nuestros planes</h2>
+        <div class="selector">
+          <button type="button" id="btn-mensual" aria-pressed="true">Mensual</button>
+          <button type="button" id="btn-anual" aria-pressed="false">Anual (2 meses gratis)</button>
+        </div>
+        <p id="tipo-precio" class="texto-centro" role="status">Mostrando precios mensuales</p>
 
-      <div class="selector">
-        <button onclick="precioMensual()">Mensual</button>
-        <button onclick="precioAnual()">Anual (2 meses gratis)</button>
-      </div>
-      <p id="tipo-precio" style="text-align:center; margin-bottom:20px;">Mostrando precios mensuales</p>
-
-      <div class="tarjetas">
-        <div class="tarjeta">
+        <div class="tarjetas">
+        <article class="tarjeta">
           <h3>Básico</h3>
-          <p class="precio" id="precio1">$20 <small>/ mes</small></p>
+          <p class="precio"><span class="monto" data-mensual="20" data-anual="200">$20</span> <small class="periodo">/ mes</small></p>
           <ul>
             <li>Acceso a zona de pesas y cardio</li>
             <li>Horario completo</li>
             <li>Casillero del día</li>
           </ul>
-          <button class="boton" onclick="elegirPlan('Básico')">Elegir plan</button>
-        </div>
-        <div class="tarjeta destacada">
-          <span class="etiqueta">Más popular</span>
+          <a class="boton" href="#inscripcion" data-plan="Básico">Elegir plan Básico</a>
+        </article>
+        <article class="tarjeta destacada">
+          <p class="etiqueta">Más popular</p>
           <h3>Premium</h3>
-          <p class="precio" id="precio2">$35 <small>/ mes</small></p>
+          <p class="precio"><span class="monto" data-mensual="35" data-anual="350">$35</span> <small class="periodo">/ mes</small></p>
           <ul>
             <li>Todo lo del plan Básico</li>
             <li>Clases grupales ilimitadas</li>
             <li>1 evaluación física al mes</li>
             <li>Casillero fijo</li>
           </ul>
-          <button class="boton" onclick="elegirPlan('Premium')">Elegir plan</button>
-        </div>
-        <div class="tarjeta">
+          <a class="boton" href="#inscripcion" data-plan="Premium">Elegir plan Premium</a>
+        </article>
+        <article class="tarjeta">
           <h3>VIP</h3>
-          <p class="precio" id="precio3">$50 <small>/ mes</small></p>
+          <p class="precio"><span class="monto" data-mensual="50" data-anual="500">$50</span> <small class="periodo">/ mes</small></p>
           <ul>
             <li>Todo lo del plan Premium</li>
             <li>2 sesiones con entrenador al mes</li>
             <li>Plan de nutrición básico</li>
             <li>Invitado gratis 1 vez al mes</li>
           </ul>
-          <button class="boton" onclick="elegirPlan('VIP')">Elegir plan</button>
+          <a class="boton" href="#inscripcion" data-plan="VIP">Elegir plan VIP</a>
+        </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="fondo-blanco">
-    <div class="contenedor">
-      <h2>Descuentos y promociones</h2>
-      <div class="tarjetas dos">
-        <div class="tarjeta">
+    <section class="fondo-blanco">
+      <div class="contenedor">
+        <h2>Descuentos y promociones</h2>
+        <div class="tarjetas dos">
+        <article class="tarjeta">
           <h3>Estudiantes</h3>
           <p>15% de descuento presentando tu carnet vigente.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Trae a un amigo</h3>
           <p>Inscríbanse juntos y cada uno recibe 10% de descuento.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Primera semana gratis</h3>
           <p>Prueba el gimnasio sin costo antes de decidir.</p>
-        </div>
-        <div class="tarjeta">
+        </article>
+        <article class="tarjeta">
           <h3>Adultos mayores</h3>
           <p>20% de descuento a personas mayores de 60 años.</p>
+        </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="contenedor">
-      <h2>Inscríbete ahora</h2>
-      <form name="inscripcion" class="formulario" action="#" method="get">
-        Nombre completo<br>
-        <input type="text" name="nombre" id="nombre"><br>
-        Correo electrónico<br>
-        <input type="text" name="correo" id="correo"><br>
-        Edad<br>
-        <input type="text" name="edad" id="edad"><br>
-        Plan<br>
-        <select name="plan" id="plan">
-          <option value="">Elige un plan</option>
-          <option value="Básico">Básico</option>
-          <option value="Premium">Premium</option>
-          <option value="VIP">VIP</option>
-        </select><br>
-        <input type="checkbox" name="acepto" id="acepto"> Acepto las normas del gimnasio<br>
-        <input type="button" class="boton" value="Enviar inscripción" onclick="validarFormulario()">
-        <p id="mensaje"></p>
-      </form>
-    </div>
-  </section>
+    <section>
+      <div class="contenedor">
+        <h2>Inscríbete ahora</h2>
+        <form id="inscripcion" class="formulario" action="#" method="get">
+          <p>Todos los campos son obligatorios.</p>
+          <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="error-nombre">
+            <p class="error" id="error-nombre"></p>
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="error-correo">
+            <p class="error" id="error-correo"></p>
+          </div>
+          <div class="campo">
+            <label for="edad">Edad (de 12 a 90 años)</label>
+            <input type="number" id="edad" name="edad" min="12" max="90" required aria-describedby="error-edad">
+            <p class="error" id="error-edad"></p>
+          </div>
+          <div class="campo">
+            <label for="plan">Plan</label>
+            <select id="plan" name="plan" required aria-describedby="error-plan">
+              <option value="">Elige un plan</option>
+              <option value="Básico">Básico</option>
+              <option value="Premium">Premium</option>
+              <option value="VIP">VIP</option>
+            </select>
+            <p class="error" id="error-plan"></p>
+          </div>
+          <div class="campo">
+            <input type="checkbox" id="acepto" name="acepto" required aria-describedby="error-acepto">
+            <label for="acepto">Acepto las normas del gimnasio</label>
+            <p class="error" id="error-acepto"></p>
+          </div>
+          <button type="submit" class="boton">Enviar inscripción</button>
+          <p id="mensaje" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

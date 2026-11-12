@@ -1,54 +1,138 @@
-function precioMensual() {
-  document.getElementById("precio1").innerHTML = "$20 <small>/ mes</small>";
-  document.getElementById("precio2").innerHTML = "$35 <small>/ mes</small>";
-  document.getElementById("precio3").innerHTML = "$50 <small>/ mes</small>";
-  document.getElementById("tipo-precio").innerHTML = "Mostrando precios mensuales";
-}
+const botonMensual = document.getElementById("btn-mensual");
+const botonAnual = document.getElementById("btn-anual");
 
-function precioAnual() {
-  document.getElementById("precio1").innerHTML = "$200 <small>/ año</small>";
-  document.getElementById("precio2").innerHTML = "$350 <small>/ año</small>";
-  document.getElementById("precio3").innerHTML = "$500 <small>/ año</small>";
-  document.getElementById("tipo-precio").innerHTML = "Mostrando precios anuales (2 meses gratis)";
-}
+function mostrarPrecios(tipo) {
+  const montos = document.querySelectorAll(".monto");
+  const periodos = document.querySelectorAll(".periodo");
 
-function elegirPlan(nombre) {
-  alert("Elegiste el plan " + nombre + ". ¡Llena el formulario para inscribirte!");
-}
-function validarFormulario() {
-  var nombre = document.getElementById("nombre").value;
-  var correo = document.getElementById("correo").value;
-  var edad = document.getElementById("edad").value;
-  var plan = document.getElementById("plan").value;
-  var acepto = document.getElementById("acepto").checked;
-  var mensaje = document.getElementById("mensaje");
-
-  if (nombre == "") {
-    mensaje.innerHTML = "Escribe tu nombre completo";
-  } else if (correo == "") {
-    mensaje.innerHTML = "Escribe tu correo electrónico";
-  } else if (edad == "" || edad < 12 || edad > 90) {
-    mensaje.innerHTML = "La edad debe ser un número entre 12 y 90";
-  } else if (plan == "") {
-    mensaje.innerHTML = "Elige un plan";
-  } else if (acepto == false) {
-    mensaje.innerHTML = "Debes aceptar las normas del gimnasio";
-  } else {
-    mensaje.innerHTML = "¡Listo " + nombre + "! Te inscribiste en el plan " + plan;
+  for (const monto of montos) {
+    monto.textContent = "$" + monto.dataset[tipo];
   }
+  for (const periodo of periodos) {
+    periodo.textContent = tipo === "mensual" ? "/ mes" : "/ año";
+  }
+
+  botonMensual.setAttribute("aria-pressed", String(tipo === "mensual"));
+  botonAnual.setAttribute("aria-pressed", String(tipo === "anual"));
+  document.getElementById("tipo-precio").textContent =
+    tipo === "mensual" ? "Mostrando precios mensuales" : "Mostrando precios anuales (2 meses gratis)";
 }
 
-function contratar(nombre, precio) {
-  var sesiones = document.getElementById("sesiones").value;
-  var reserva = document.getElementById("reserva");
+if (botonMensual && botonAnual) {
+  botonMensual.addEventListener("click", function () {
+    mostrarPrecios("mensual");
+  });
+  botonAnual.addEventListener("click", function () {
+    mostrarPrecios("anual");
+  });
+}
 
-  if (sesiones == "" || sesiones < 1) {
-    reserva.innerHTML = "Escribe cuántas sesiones quieres (mínimo 1)";
-  } else {
-    var total = sesiones * precio;
-    if (sesiones >= 10) {
-      total = total * 0.9;
+const enlacesPlan = document.querySelectorAll("[data-plan]");
+
+for (const enlace of enlacesPlan) {
+  enlace.addEventListener("click", function () {
+    document.getElementById("plan").value = enlace.dataset.plan;
+  });
+}
+
+const formulario = document.getElementById("inscripcion");
+
+const mensajesError = {
+  nombre: { valueMissing: "Error: escribe tu nombre completo." },
+  correo: {
+    valueMissing: "Error: escribe tu correo electrónico.",
+    typeMismatch: "Error: el correo debe tener un formato como nombre@ejemplo.com."
+  },
+  edad: {
+    badInput: "Error: la edad debe ser un número entre 12 y 90.",
+    valueMissing: "Error: escribe tu edad.",
+    rangeUnderflow: "Error: la edad mínima es 12 años.",
+    rangeOverflow: "Error: la edad máxima es 90 años."
+  },
+  plan: { valueMissing: "Error: elige un plan." },
+  acepto: { valueMissing: "Error: debes aceptar las normas del gimnasio." }
+};
+
+function textoDeError(campo) {
+  const reglas = mensajesError[campo.id];
+  for (const regla in reglas) {
+    if (campo.validity[regla]) {
+      return reglas[regla];
     }
-    reserva.innerHTML = "Reservaste " + sesiones + " sesión(es) con " + nombre + ". Total: $" + total;
   }
+  return "";
+}
+
+function revisarCampo(campo) {
+  const mensaje = textoDeError(campo);
+  document.getElementById("error-" + campo.id).textContent = mensaje;
+
+  if (mensaje === "") {
+    campo.removeAttribute("aria-invalid");
+    return true;
+  }
+  campo.setAttribute("aria-invalid", "true");
+  return false;
+}
+
+function enviarFormulario(evento) {
+  evento.preventDefault();
+
+  const mensaje = document.getElementById("mensaje");
+  let primerError = null;
+
+  for (const campo of formulario.querySelectorAll("input, select")) {
+    if (!revisarCampo(campo) && primerError === null) {
+      primerError = campo;
+    }
+  }
+
+  if (primerError !== null) {
+    mensaje.textContent = "";
+    primerError.focus();
+    return;
+  }
+
+  const nombre = document.getElementById("nombre").value;
+  const plan = document.getElementById("plan").value;
+  mensaje.textContent = "¡Listo " + nombre + "! Te inscribiste en el plan " + plan + ".";
+  formulario.reset();
+}
+
+if (formulario) {
+  formulario.noValidate = true;
+  formulario.addEventListener("submit", enviarFormulario);
+}
+
+const botonesContratar = document.querySelectorAll("[data-precio]");
+const campoSesiones = document.getElementById("sesiones");
+
+function contratar(evento) {
+  const boton = evento.currentTarget;
+  const entrenador = boton.closest("article").querySelector("h3").textContent;
+  const precio = Number(boton.dataset.precio);
+  const sesiones = Number(campoSesiones.value);
+  const error = document.getElementById("error-sesiones");
+  const reserva = document.getElementById("reserva");
+
+  if (campoSesiones.value === "" || !Number.isInteger(sesiones) || sesiones < 1) {
+    error.textContent = "Error: escribe un número entero de sesiones, mínimo 1.";
+    campoSesiones.setAttribute("aria-invalid", "true");
+    reserva.textContent = "";
+    campoSesiones.focus();
+    return;
+  }
+
+  error.textContent = "";
+  campoSesiones.removeAttribute("aria-invalid");
+
+  let total = sesiones * precio;
+  if (sesiones >= 10) {
+    total = total * 0.9;
+  }
+  reserva.textContent = "Reservaste " + sesiones + " sesión(es) con " + entrenador + ". Total: $" + total.toFixed(2);
+}
+
+for (const boton of botonesContratar) {
+  boton.addEventListener("click", contratar);
 }

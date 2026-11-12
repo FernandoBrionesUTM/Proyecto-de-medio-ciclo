@@ -1,10 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, sans-serif;
+  font-size: 1rem;
   background-color: #eae7ea;
   color: #222222;
 }
@@ -12,6 +14,25 @@ body {
 a {
   text-decoration: none;
   color: white;
+}
+
+.saltar {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background-color: white;
+  color: #1d2430;
+  padding: 0.6em 1em;
+}
+
+.saltar:focus {
+  left: 0;
+  z-index: 10;
+}
+
+a:focus, button:focus, input:focus, select:focus {
+  outline: 3px solid #ffbf47;
+  box-shadow: 0 0 0 6px #1d2430;
 }
 
 .contenedor {
@@ -22,21 +43,22 @@ a {
 header {
   background-color: #1d2430;
   color: white;
-  padding: 15px 0;
+  padding: 1em 0;
 }
 
 .barra {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  align-items: center;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .logo span {
-  color: #e63946;
+  color: #ff6b6b;
 }
 
 nav ul {
@@ -46,8 +68,13 @@ nav ul {
   text-align: center;
 }
 
-nav a.activo {
-  border-bottom: 2px solid #e63946;
+nav a {
+  display: block;
+  padding: 0.6em 0.5em;
+}
+
+nav a[aria-current="page"] {
+  border-bottom: 2px solid #ff6b6b;
 }
 
 .portada {
@@ -57,22 +84,40 @@ nav a.activo {
 .portada img {
   display: block;
   width: 100%;
+  height: auto;
 }
 
 .titulo-pagina {
   background-color: #1d2430;
   color: white;
   text-align: center;
-  padding: 40px 20px;
+  padding: 2.5em 1.25em;
+}
+
+.titulo-pagina h1 {
+  font-size: 2rem;
 }
 
 section {
-  padding: 40px 0;
+  padding: 2.5em 0;
+}
+
+section h1, section h2 {
+  text-align: center;
+  margin-bottom: 0.8em;
+}
+
+section h1 {
+  font-size: 2rem;
 }
 
 section h2 {
+  font-size: 1.5rem;
+}
+
+.texto-centro {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 1em;
 }
 
 .fondo-blanco {
@@ -80,17 +125,19 @@ section h2 {
 }
 
 .boton {
-  background-color: #e63946;
+  display: inline-block;
+  background-color: #c1121f;
   color: white;
-  padding: 10px 25px;
+  padding: 0.7em 1.6em;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
 }
 
 .tarjetas {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  gap: 1.25em;
 }
 
 .tarjetas.dos {
@@ -100,7 +147,7 @@ section h2 {
 .tarjeta {
   background-color: white;
   border: 1px solid #cccccc;
-  padding: 20px;
+  padding: 1.25em;
   text-align: center;
 }
 
@@ -109,22 +156,18 @@ section h2 {
 }
 
 .tarjeta h3 {
-  margin-bottom: 10px;
+  font-size: 1.15rem;
+  margin-bottom: 0.6em;
 }
 
 .tarjeta ul {
   list-style: none;
-  margin: 15px 0;
+  margin: 1em 0;
 }
 
 .tarjeta li {
-  padding: 5px 0;
+  padding: 0.35em 0;
   border-bottom: 1px solid #dddddd;
-}
-
-.icono {
-  font-size: 40px;
-  display: block;
 }
 
 .horario {
@@ -133,55 +176,73 @@ section h2 {
   border-collapse: collapse;
 }
 
+.horario caption {
+  font-weight: bold;
+  padding-bottom: 0.6em;
+}
+
 .horario th, .horario td {
-  padding: 10px;
+  padding: 0.6em;
   border: 1px solid #cccccc;
   text-align: left;
 }
 
-.horario th {
+.horario thead th {
   background-color: #1d2430;
   color: white;
+}
+
+.avisos {
+  list-style: none;
 }
 
 .aviso {
   background-color: #fff3cd;
   border-left: 5px solid orange;
-  padding: 15px;
-  margin-bottom: 10px;
+  padding: 1em;
+  margin-bottom: 0.6em;
 }
 
 .selector {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 1em;
 }
 
 .selector button {
-  padding: 10px 20px;
+  padding: 0.7em 1.2em;
   border: 2px solid #1d2430;
   background-color: white;
+  color: #1d2430;
+  font-size: 1rem;
+}
+
+.selector button[aria-pressed="true"] {
+  background-color: #1d2430;
+  color: white;
 }
 
 .precio {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: bold;
-  color: #e63946;
+  color: #c1121f;
 }
 
 .precio small {
-  font-size: 16px;
+  font-size: 1rem;
   color: #555555;
 }
 
 .destacada {
-  border: 3px solid #e63946;
+  border: 3px solid #c1121f;
 }
 
 .etiqueta {
-  background-color: #e63946;
+  display: inline-block;
+  background-color: #c1121f;
   color: white;
-  padding: 3px 10px;
-  font-size: 14px;
+  padding: 0.2em 0.7em;
+  font-size: 0.9rem;
+  margin-bottom: 0.5em;
 }
 
 .formulario {
@@ -189,18 +250,52 @@ section h2 {
   margin: auto;
   background-color: white;
   border: 1px solid #cccccc;
-  padding: 20px;
+  padding: 1.25em;
 }
 
-.formulario input, .formulario select {
-  margin-bottom: 12px;
-  padding: 6px;
+.campo {
+  margin-bottom: 1em;
 }
 
-#mensaje {
-  margin-top: 15px;
+.formulario label, .sesiones label {
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+.formulario input[type="checkbox"] + label {
+  display: inline;
+}
+
+.formulario input[type="text"], .formulario input[type="email"], .formulario input[type="number"], .formulario select, .sesiones input {
+  width: 14em;
+  max-width: 100%;
+  padding: 0.5em;
+  font-size: 1rem;
+  border: 2px solid #1d2430;
+}
+
+.formulario input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+input[aria-invalid="true"], select[aria-invalid="true"] {
+  border: 3px solid #c1121f;
+}
+
+.error {
+  color: #9b0e19;
   font-weight: bold;
-  color: #e63946;
+}
+
+#mensaje, .reserva {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.sesiones {
+  text-align: center;
 }
 
 .foto-entrenador {
@@ -208,9 +303,9 @@ section h2 {
   height: 100px;
   background-color: #1d2430;
   color: white;
-  font-size: 40px;
+  font-size: 2.5rem;
   line-height: 100px;
-  margin: 0 auto 15px;
+  margin: 0 auto 1em;
 }
 
 .especialidad {
@@ -221,7 +316,7 @@ section h2 {
 .galeria {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15px;
+  gap: 1em;
 }
 
 .foto {
@@ -231,13 +326,14 @@ section h2 {
 .foto img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 footer {
   background-color: #1d2430;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 1.25em;
 }
 
 @media (max-width: 700px) {
@@ -250,10 +346,6 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 
-  nav li {
-    padding: 8px;
-  }
-
   .tarjetas, .tarjetas.dos, .galeria {
     grid-template-columns: 1fr;
   }
@@ -263,6 +355,10 @@ footer {
   }
 
   .formulario {
-    width: 80%;
+    width: 100%;
+  }
+
+  .titulo-pagina h1, section h1 {
+    font-size: 1.5rem;
   }
 }
