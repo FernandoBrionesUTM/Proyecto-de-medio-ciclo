@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerFit Gym - Entrenadores</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    <div class="contenedor barra">
+      <div class="logo">Power<span>Fit</span> Gym</div>
+      <nav>
+        <ul>
+          <li><a href="gym.html">Inicio</a></li>
+          <li><a href="suscripciones.html">Suscripciones</a></li>
+          <li><a href="entrenadores.html" class="activo">Entrenadores</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="titulo-pagina">
+    <h1>Entrenadores personales</h1>
+    <p>Contrata una sesión y alcanza tus metas más rápido</p>
+  </div>
+
+  <section>
+    <div class="contenedor">
+      <p style="text-align:center; margin-bottom:20px;">
+        ¿Cuántas sesiones quieres?
+        <input type="text" id="sesiones" value="1" size="3">
+      </p>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <div class="foto-entrenador">M</div>
+          <h3>Michael Pinoargote</h3>
+          <p class="especialidad">Musculación y fuerza</p>
+          <p>8 años de experiencia ayudando a ganar masa muscular.</p>
+          <p class="precio">$15 <small>/ sesión</small></p>
+          <button class="boton" onclick="contratar('Michael Pinoargote', 15)">Contratar</button>
+        </div>
+        <div class="tarjeta">
+          <div class="foto-entrenador">F</div>
+          <h3>Fernando Briones</h3>
+          <p class="especialidad">Pérdida de peso y cardio</p>
+          <p>Rutinas dinámicas y planes de alimentación sencillos.</p>
+          <p class="precio">$14 <small>/ sesión</small></p>
+          <button class="boton" onclick="contratar('Fernando Briones', 14)">Contratar</button>
+        </div>
+        <div class="tarjeta">
+          <div class="foto-entrenador">L</div>
+          <h3>Samir Dueñas</h3>
+          <p class="especialidad">Entrenamiento funcional</p>
+          <p>Mejora tu movilidad, resistencia y postura.</p>
+          <p class="precio">$12 <small>/ sesión</small></p>
+          <button class="boton" onclick="contratar('Luis Paredes', 12)">Contratar</button>
+        </div>
+      </div>
+
+      <div class="aviso" style="margin-top:30px;">
+        Al contratar 10 sesiones o más recibes 10% de descuento.
+      </div>
+      <p id="reserva" style="text-align:center; font-weight:bold; margin-top:20px;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
